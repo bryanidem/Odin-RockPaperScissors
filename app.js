@@ -22,7 +22,7 @@ const playRound = (playerSelection, computerSelection) => {
     } else if (computerSelection === "scissors") {
       return "computer wins, paper loses to scissors";
     }
-  } else if (player === "scisors") {
+  } else if (player === "scissors") {
     if (computerSelection === "rock") {
       return "computer wins, scissors loses to rock";
     } else if (computerSelection === "paper") {
@@ -35,8 +35,15 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
+const playGame = () => {
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt("Select [rock] or [paper] or [scissors]");
+    let computerSelection = getComputerChoice();
+    console.log(
+      `player: ${playerSelection} --- computer: ${computerSelection}`
+    );
+    console.log(playRound(playerSelection, computerSelection));
+  }
+};
 
-console.log(`player: ${playerSelection} --- computer: ${computerSelection}`);
-console.log(playRound(playerSelection, computerSelection));
+playGame();
