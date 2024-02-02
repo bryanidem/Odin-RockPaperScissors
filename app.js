@@ -34,16 +34,3 @@ const playRound = (playerSelection, computerSelection) => {
     return "Please write only either [rock] [paper] [scissors]";
   }
 };
-
-const playGame = () => {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Select [rock] or [paper] or [scissors]");
-    let computerSelection = getComputerChoice();
-    console.log(
-      `player: ${playerSelection} --- computer: ${computerSelection}`
-    );
-    console.log(playRound(playerSelection, computerSelection));
-  }
-};
-
-playGame();
