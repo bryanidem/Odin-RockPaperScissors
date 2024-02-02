@@ -34,3 +34,14 @@ const playRound = (playerSelection, computerSelection) => {
     return "Please write only either [rock] [paper] [scissors]";
   }
 };
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    playerSelection = e.target.innerText;
+    computerSelection = getComputerChoice();
+    console.log(playerSelection, computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+  });
+});
