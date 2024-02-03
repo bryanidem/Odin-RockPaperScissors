@@ -36,12 +36,13 @@ const playRound = (playerSelection, computerSelection) => {
 };
 
 const buttons = document.querySelectorAll("button");
+const display = document.querySelector("p");
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     playerSelection = e.target.innerText;
     computerSelection = getComputerChoice();
     console.log(playerSelection, computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    display.innerText = playRound(playerSelection, computerSelection);
   });
 });

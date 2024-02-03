@@ -3,15 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors</title>
+    <title>PokéRock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="buttons">
-      <button>Rock</button>
-      <button>Paper</button>
-      <button>Scissors</button>
+    <h1>PokéRock Paper Scissors</h1>
+    <div class="display">
+      <img
+        class="background"
+        src="images/battle_background.webp"
+        alt="battle_background"
+      />
+      <div class="player-ui">
+        <div class="message">
+          <div class="message-display">
+            <p>What will PLAYER do?</p>
+          </div>
+        </div>
+        <div class="options">
+          <div class="options-display">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+            <button>Restart</button>
+          </div>
+        </div>
+      </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
