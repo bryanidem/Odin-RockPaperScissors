@@ -60,7 +60,12 @@ const iconMapping = {
 };
 
 playAgain.addEventListener("click", () => {
-  console.log("hey");
+  playerScore = 0;
+  computerScore = 0;
+  resultsH2.textContent = "Choose your hand!";
+  resultsP.textContent = "First to score 5 points wins the game";
+  playerDisplay.textContent = "👤";
+  computerDisplay.textContent = "🤖";
   modal.close();
 });
 
