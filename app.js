@@ -45,5 +45,3 @@ const playGame = () => {
     console.log(playRound(playerSelection, computerSelection));
   }
 };
-
-playGame();
