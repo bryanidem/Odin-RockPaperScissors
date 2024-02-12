@@ -8,53 +8,61 @@ const playRound = (playerSelection, computerSelection) => {
 
   if (player === "rock") {
     if (computerSelection === "rock") {
-      return "it's a draw ";
+      return "draw ";
     } else if (computerSelection === "paper") {
-      return "computer wins, rock loses to paper";
+      return "computer";
     } else if (computerSelection === "scissors") {
-      return "player wins, rock wins over scissors";
+      return "player";
     }
   } else if (player === "paper") {
     if (computerSelection === "rock") {
-      return "player wins, paper wins over paper";
+      return "player";
     } else if (computerSelection === "paper") {
-      return "it's a draw";
+      return "draw";
     } else if (computerSelection === "scissors") {
-      return "computer wins, paper loses to scissors";
+      return "computer";
     }
   } else if (player === "scissors") {
     if (computerSelection === "rock") {
-      return "computer wins, scissors loses to rock";
+      return "computer";
     } else if (computerSelection === "paper") {
-      return "player wins, scissors wins over paper";
+      return "player";
     } else if (computerSelection === "scissors") {
-      return "it's a draw";
+      return "draw";
     }
   } else {
     return "Please write only either [rock] [paper] [scissors]";
   }
 };
 
-const playGame = () => {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Select [rock] or [paper] or [scissors]");
-    let computerSelection = getComputerChoice();
-    console.log(
-      `player: ${playerSelection} --- computer: ${computerSelection}`
-    );
-    console.log(playRound(playerSelection, computerSelection));
-  }
-};
+const buttons = document.querySelectorAll(".buttons > button");
+const playerDisplay = document.querySelector(".player>.selection-display>p");
+const resultsH2 = document.querySelector(".results>h2");
+const resultsP = document.querySelector(".results>p");
+const modal = document.querySelector("dialog");
+const playAgain = document.querySelector(".play");
+const computerDisplay = document.querySelector(
+  ".computer>.selection-display>p"
+);
+const playerScoreDisplay = document.querySelector(
+  ".player>.selection-score>p>span"
+);
+const computerScoreDisplay = document.querySelector(
+  ".computer>.selection-score>p>span"
+);
 
-const buttons = document.querySelectorAll(".buttons>button");
-const playerDisplay = document.querySelector(".selection-display-player>p");
-const computerDisplay = document.querySelector(".selection-display-computer>p");
-
+let playerScore = 0;
+let computerScore = 0;
 const iconMapping = {
   rock: "👊",
   paper: "🖐️",
   scissors: "✌️",
 };
+
+playAgain.addEventListener("click", () => {
+  console.log("hey");
+  modal.close();
+});
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -64,6 +72,31 @@ buttons.forEach((button) => {
     playerDisplay.textContent = iconMapping[playerSelection];
     computerDisplay.textContent = iconMapping[computerSelection];
 
-    console.log(playRound(playerSelection, computerSelection));
+    let result = playRound(playerSelection, computerSelection);
+
+    if (result === "player") {
+      playerScore += 1;
+      playerScoreDisplay.textContent = playerScore.toString();
+      resultsH2.textContent = "You won!";
+      resultsP.textContent = `${playerSelection} beats ${computerSelection}`;
+      if (playerScore >= 5) {
+        resultsH2.textContent = "Player won! 🏆";
+        resultsP.textContent = "You rock!";
+        modal.showModal();
+      }
+    } else if (result === "computer") {
+      computerScore += 1;
+      computerScoreDisplay.textContent = computerScore.toString();
+      resultsH2.textContent = "Computer won!";
+      resultsP.textContent = `${playerSelection} beats ${computerSelection}`;
+      if (computerScore >= 5) {
+        resultsH2.textContent = "Computer won! 🏆";
+        resultsP.textContent = "Maybe next time";
+        modal.showModal();
+      }
+    } else if (result === "draw") {
+      resultsH2.textContent = "it's a draw!";
+      resultsP.textContent = `${playerSelection} ties with ${computerSelection}`;
+    }
   });
 });

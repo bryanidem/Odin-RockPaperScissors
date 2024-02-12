@@ -8,18 +8,25 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
-    <h2>First to score 5 points wins the game</h2>
+    <dialog>
+      <p>Want to play again?</p>
+      <button class="play">Play</button>
+    </dialog>
     <div class="container">
       <div class="game">
+        <div class="results">
+          <h2>Choose your hand!</h2>
+          <p>First to score 5 points wins the game</p>
+        </div>
         <div class="score">
-          <div class="selection">
-            <div class="selection-display-player"><p>?</p></div>
+          <div class="selection player">
+            <div class="selection-display"><p>👤</p></div>
             <div class="selection-score">
               <p>Player: <span>0</span></p>
             </div>
           </div>
-          <div class="selection">
-            <div class="selection-display-computer"><p>?</p></div>
+          <div class="selection computer">
+            <div class="selection-display"><p>🤖</p></div>
             <div class="selection-score">
               <p>Computer: <span>0</span></p>
             </div>
