@@ -8,11 +8,28 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
+    <h2>First to score 5 points wins the game</h2>
     <div class="container">
-      <div class="buttons">
-        <button>👊</button>
-        <button>🖐️</button>
-        <button>✌️</button>
+      <div class="game">
+        <div class="score">
+          <div class="selection">
+            <div class="selection-display-player"><p>?</p></div>
+            <div class="selection-score">
+              <p>Player: <span>0</span></p>
+            </div>
+          </div>
+          <div class="selection">
+            <div class="selection-display-computer"><p>?</p></div>
+            <div class="selection-score">
+              <p>Computer: <span>0</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="rock">👊</button>
+          <button id="paper">🖐️</button>
+          <button id="scissors">✌️</button>
+        </div>
       </div>
     </div>
     <footer>

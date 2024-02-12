@@ -45,3 +45,25 @@ const playGame = () => {
     console.log(playRound(playerSelection, computerSelection));
   }
 };
+
+const buttons = document.querySelectorAll(".buttons>button");
+const playerDisplay = document.querySelector(".selection-display-player>p");
+const computerDisplay = document.querySelector(".selection-display-computer>p");
+
+const iconMapping = {
+  rock: "👊",
+  paper: "🖐️",
+  scissors: "✌️",
+};
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let playerSelection = e.target.id;
+    let computerSelection = getComputerChoice();
+
+    playerDisplay.textContent = iconMapping[playerSelection];
+    computerDisplay.textContent = iconMapping[computerSelection];
+
+    console.log(playRound(playerSelection, computerSelection));
+  });
+});
