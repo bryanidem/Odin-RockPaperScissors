@@ -41,6 +41,7 @@ const resultsH2 = document.querySelector(".results>h2");
 const resultsP = document.querySelector(".results>p");
 const modal = document.querySelector("dialog");
 const playAgain = document.querySelector(".play");
+const modalText = document.querySelector("dialog>p");
 const computerDisplay = document.querySelector(
   ".computer>.selection-display>p"
 );
@@ -66,6 +67,8 @@ playAgain.addEventListener("click", () => {
   resultsP.textContent = "First to score 5 points wins the game";
   playerDisplay.textContent = "👤";
   computerDisplay.textContent = "🤖";
+  playerScoreDisplay.textContent = playerScore.toString();
+  computerScoreDisplay.textContent = computerScore.toString();
   modal.close();
 });
 
@@ -87,6 +90,7 @@ buttons.forEach((button) => {
       if (playerScore >= 5) {
         resultsH2.textContent = "Player won! 🏆";
         resultsP.textContent = "You rock!";
+        modalText.textContent = "You won!";
         modal.showModal();
       }
     } else if (result === "computer") {
@@ -97,6 +101,7 @@ buttons.forEach((button) => {
       if (computerScore >= 5) {
         resultsH2.textContent = "Computer won! 🏆";
         resultsP.textContent = "Maybe next time";
+        modalText.textContent = "Computer won!";
         modal.showModal();
       }
     } else if (result === "draw") {
